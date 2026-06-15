@@ -203,9 +203,16 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: url('assets/img/hero-gade.jpg') center center / cover no-repeat;
+      opacity: .18;
     }
-    #hero .container { position: relative; z-index: 1; padding: 80px 24px; }
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(13,43,85,.92) 0%, rgba(27,79,138,.85) 60%, rgba(13,79,110,.88) 100%);
+    }
+    #hero .container { position: relative; z-index: 2; padding: 80px 24px; }
     .hero-badge {
       display: inline-block;
       background: rgba(244,163,0,.2);
@@ -268,16 +275,16 @@
       position: relative;
     }
     .about-img-placeholder {
-      background: linear-gradient(135deg, var(--navy), var(--blue));
       border-radius: 16px;
       height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
       position: relative;
     }
-    .about-img-placeholder svg { opacity: .15; }
+    .about-img-placeholder img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
     .about-badge-float {
       position: absolute;
       bottom: -20px;
@@ -355,12 +362,24 @@
     .service-card {
       background: var(--light);
       border-radius: var(--radius);
-      padding: 28px 24px;
+      padding: 0;
       border: 1px solid var(--border);
       transition: all var(--transition);
       position: relative;
       overflow: hidden;
     }
+    .service-img {
+      width: 100%; height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+    .service-img-placeholder {
+      width: 100%; height: 160px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .service-body { padding: 22px 22px 24px; }
     .service-card::after {
       content: '';
       position: absolute;
@@ -682,9 +701,7 @@
     <div class="about-grid">
       <div class="about-img-wrap">
         <div class="about-img-placeholder">
-          <svg width="200" height="200" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm-7 3a3 3 0 110 6 3 3 0 010-6zm6 13H6v-.75C6 17 9 15.25 12 15.25S18 17 18 19.25V20z"/>
-          </svg>
+          <img src="assets/img/about-rens.jpg" alt="Specialrengøring i Randers" loading="lazy" />
         </div>
         <div class="about-badge-float">
           <strong>43</strong>
@@ -759,49 +776,76 @@
 
     <div class="services-grid">
       <div class="service-card reveal">
-        <div class="service-num">01</div>
-        <h3>Sandblæsning</h3>
-        <p>Professionel sandblæsning til fjernelse af maling, rust og anden overfladeforurening fra metal, beton og træ.</p>
+        <img class="service-img" src="assets/img/sandblæsning.jpg" alt="Sandblæsning" loading="lazy" />
+        <div class="service-body">
+          <div class="service-num">01</div>
+          <h3>Sandblæsning</h3>
+          <p>Professionel sandblæsning til fjernelse af maling, rust og anden overfladeforurening fra metal, beton og træ.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">02</div>
-        <h3>Tørisrensning</h3>
-        <p>Effektiv rensning med CO₂-tøris – skånsom overfor underlag og efterlader ingen kemikalier eller fugt.</p>
+        <div class="service-img-placeholder">🧊</div>
+        <div class="service-body">
+          <div class="service-num">02</div>
+          <h3>Tørisrensning</h3>
+          <p>Effektiv rensning med CO₂-tøris – skånsom overfor underlag og efterlader ingen kemikalier eller fugt.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">03</div>
-        <h3>Facaderensning</h3>
-        <p>Professionel rensning af facader på bygninger, fjernelse af snavs, alger og misfarvninger.</p>
+        <img class="service-img" src="assets/img/facaderens.jpg" alt="Facaderensning" loading="lazy" />
+        <div class="service-body">
+          <div class="service-num">03</div>
+          <h3>Facaderensning</h3>
+          <p>Professionel rensning af facader på bygninger, fjernelse af snavs, alger og misfarvninger.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">04</div>
-        <h3>Graffitirensning</h3>
-        <p>Hurtig og effektiv fjernelse af graffiti fra alle underlag uden at beskadige overfladen.</p>
+        <img class="service-img" src="assets/img/graffiti.jpg" alt="Graffitirensning" loading="lazy" />
+        <div class="service-body">
+          <div class="service-num">04</div>
+          <h3>Graffitirensning</h3>
+          <p>Hurtig og effektiv fjernelse af graffiti fra alle underlag uden at beskadige overfladen.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">05</div>
-        <h3>Asbestsanering</h3>
-        <p>Certificeret asbestsanering udført af uddannet personale efter gældende lovgivning og sikkerheds­procedurer.</p>
+        <div class="service-img-placeholder">⚠️</div>
+        <div class="service-body">
+          <div class="service-num">05</div>
+          <h3>Asbestsanering</h3>
+          <p>Certificeret asbestsanering udført af uddannet personale efter gældende lovgivning og sikkerheds­procedurer.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">06</div>
-        <h3>PCB-sanering</h3>
-        <p>Sikker og lovpligtig PCB-sanering af bygninger og materialer med fuld dokumentation.</p>
+        <div class="service-img-placeholder">🔬</div>
+        <div class="service-body">
+          <div class="service-num">06</div>
+          <h3>PCB-sanering</h3>
+          <p>Sikker og lovpligtig PCB-sanering af bygninger og materialer med fuld dokumentation.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">07</div>
-        <h3>Skimmelsvampsanering</h3>
-        <p>Komplet sanering af skimmelsvamp med behandling, rengøring og forebyggelse af genvækst.</p>
+        <img class="service-img" src="assets/img/skimmelsvamp_vaeg.jpg" alt="Skimmelsvampsanering" loading="lazy" />
+        <div class="service-body">
+          <div class="service-num">07</div>
+          <h3>Skimmelsvampsanering</h3>
+          <p>Komplet sanering af skimmelsvamp med behandling, rengøring og forebyggelse af genvækst.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">08</div>
-        <h3>Fugt- og vandskader</h3>
-        <p>Akut og efterfølgende behandling af fugt- og vandskader – fra udtørring til færdig renovering.</p>
+        <img class="service-img" src="assets/img/hero-badekar.jpg" alt="Fugt- og vandskader" loading="lazy" />
+        <div class="service-body">
+          <div class="service-num">08</div>
+          <h3>Fugt- og vandskader</h3>
+          <p>Akut og efterfølgende behandling af fugt- og vandskader – fra udtørring til færdig renovering.</p>
+        </div>
       </div>
       <div class="service-card reveal">
-        <div class="service-num">09</div>
-        <h3>Miljøsanering</h3>
-        <p>Miljørigtig sanering af forurenede arealer og bygninger med dokumenteret håndtering af affald.</p>
+        <img class="service-img" src="assets/img/special-rengoering.jpg" alt="Miljøsanering" loading="lazy" />
+        <div class="service-body">
+          <div class="service-num">09</div>
+          <h3>Miljøsanering</h3>
+          <p>Miljørigtig sanering af forurenede arealer og bygninger med dokumenteret håndtering af affald.</p>
+        </div>
       </div>
     </div>
   </div>
