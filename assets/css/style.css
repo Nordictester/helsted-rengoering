@@ -417,10 +417,39 @@ nav > ul > li.active > a { color: var(--white); background: rgba(255,255,255,.1)
 .expert-card img { width: 100%; height: 160px; object-fit: cover; }
 .expert-placeholder {
   width: 100%; height: 160px;
-  background: linear-gradient(135deg, var(--navy), var(--blue));
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #0D5A78 100%);
   display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem;
+  position: relative;
+  overflow: hidden;
 }
+.expert-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.10) 1px, transparent 0);
+  background-size: 18px 18px;
+  opacity: .6;
+}
+.expert-placeholder::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 130px; height: 130px;
+  background: radial-gradient(circle, rgba(0,188,212,.35), transparent 70%);
+  border-radius: 50%;
+}
+.expert-placeholder .ph-icon {
+  position: relative;
+  z-index: 1;
+  width: 66px; height: 66px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.9rem;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0,0,0,.28);
+  transition: transform var(--transition);
+}
+.expert-card:hover .expert-placeholder .ph-icon { transform: scale(1.08); }
 .expert-body { padding: 18px 20px 22px; }
 .expert-num { font-size: .72rem; font-weight: 800; color: var(--teal); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
 .expert-card h3 { font-size: .98rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
