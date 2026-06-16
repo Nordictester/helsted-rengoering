@@ -650,3 +650,94 @@ footer { background: #07192E; color: rgba(255,255,255,.7); padding: 50px 0 24px;
   .contact-form { padding: 22px 18px; }
   .cta-actions { flex-direction: column; align-items: center; }
 }
+
+/* ── Smooth theme transition ── */
+body, .contact-block, .contact-form, .sidebar-widget, .expert-card,
+.dropdown, .sub-dropdown, .form-group input, .form-group textarea, .form-group select {
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* ── Theme toggle button ── */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.1);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .2s, border-color .2s;
+  padding: 0;
+  flex-shrink: 0;
+  order: 10;
+}
+.theme-toggle:hover {
+  background: rgba(255,255,255,.22);
+  transform: scale(1.12) rotate(18deg);
+  border-color: rgba(255,255,255,.45);
+}
+@media (max-width: 960px) {
+  .burger { order: 11; }
+}
+
+/* ── Dark mode variables ── */
+[data-theme="dark"] {
+  --light:  #1A2537;
+  --white:  #0F1923;
+  --text:   #DDE6F0;
+  --muted:  #8A9AB4;
+  --border: #2A3D55;
+  --shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+
+/* Headings that use --navy as text color */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .expert-card h3,
+[data-theme="dark"] .page-content h2,
+[data-theme="dark"] .page-content h3,
+[data-theme="dark"] .contact-form h3,
+[data-theme="dark"] .form-group label,
+[data-theme="dark"] .contact-block h4,
+[data-theme="dark"] h3[style] { color: var(--text) !important; }
+
+/* Dropdowns */
+[data-theme="dark"] .dropdown,
+[data-theme="dark"] .sub-dropdown {
+  background: #1A2537;
+  box-shadow: 0 8px 32px rgba(0,0,0,.55);
+}
+[data-theme="dark"] .dropdown li a { color: var(--text); }
+[data-theme="dark"] .dropdown li a:hover { background: #243347; }
+
+/* Surfaces */
+[data-theme="dark"] .contact-block { background: var(--light); box-shadow: none; }
+[data-theme="dark"] .contact-form  { background: var(--light); box-shadow: none; }
+[data-theme="dark"] .sidebar-widget { background: var(--light); }
+[data-theme="dark"] .sidebar-links li a { color: var(--text); }
+[data-theme="dark"] .sidebar-links li a:hover,
+[data-theme="dark"] .sidebar-links li a.current { background: #1E2E42; color: var(--teal-l); }
+[data-theme="dark"] .expert-card { border-color: var(--border); }
+
+/* Forms */
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea,
+[data-theme="dark"] .form-group select {
+  background: #1E2E42;
+  color: var(--text);
+  border-color: var(--border);
+}
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder { color: #5A7090; }
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus,
+[data-theme="dark"] .form-group select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0,151,167,.2);
+}
+
+/* Footer */
+[data-theme="dark"] footer { background: #060E18; }
