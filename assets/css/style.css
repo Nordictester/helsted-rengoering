@@ -80,6 +80,7 @@ p:last-child { margin-bottom: 0; }
 
 /* Nav */
 nav { display: flex; align-items: center; gap: 2px; }
+#header nav { margin-left: auto; margin-right: 16px; }
 nav > ul { display: flex; align-items: center; gap: 2px; list-style: none; }
 nav > ul > li { position: relative; }
 nav > ul > li > a {
