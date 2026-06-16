@@ -691,12 +691,15 @@ body, .contact-block, .contact-form, .sidebar-widget, .expert-card,
   --teal:   #00B0C4;
   --teal-l: #00D4EA;
   --light:  #1A2537;
-  --white:  #0F1923;
   --text:   #DDE6F0;
   --muted:  #8A9AB4;
   --border: #2A3D55;
   --shadow: 0 4px 24px rgba(0,0,0,.5);
 }
+/* --white is NOT overridden — keeps #FFFFFF so text on dark backgrounds stays white.
+   Instead, explicitly set dark backgrounds where --white was used as bg color. */
+[data-theme="dark"] body    { background: #0F1923; }
+[data-theme="dark"] #services { background: #0F1923; }
 
 /* Headings that use --navy as text color */
 [data-theme="dark"] .section-title,
