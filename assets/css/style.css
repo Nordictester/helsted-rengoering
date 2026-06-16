@@ -686,6 +686,10 @@ body, .contact-block, .contact-form, .sidebar-widget, .expert-card,
 
 /* ── Dark mode variables ── */
 [data-theme="dark"] {
+  --navy:   #071428;
+  --blue:   #0A2040;
+  --teal:   #00B0C4;
+  --teal-l: #00D4EA;
   --light:  #1A2537;
   --white:  #0F1923;
   --text:   #DDE6F0;
